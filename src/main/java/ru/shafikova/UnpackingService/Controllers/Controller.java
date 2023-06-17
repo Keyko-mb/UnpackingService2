@@ -29,7 +29,7 @@ public class Controller {
 
     @PostMapping()
     public ResponseEntity<Object> put(@RequestParam("file") MultipartFile file) throws IOException {
-        OutputFile outputData = unpackingService.unpack(file);
+        OutputFile outputData = unpackingService.unpack(file.getBytes());
         File unpackedFile = outputData.getFile();
         String fileName = outputData.getFileName();
         String contentType = outputData.getContentType();
